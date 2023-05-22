@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-jsx",
+    "allowJs": false,
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "nodenext",
+    "paths": {},
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "declaration": true,
+    "importHelpers": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["ESNext"],
+    "types": ["react"],
+    "target": "ESNext",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"]
+}
