@@ -8,3 +8,4 @@ export * from './lib/hooks/useFormMeta';
 export * from './lib/hooks/useFormState';
 export * from './lib/hooks/useFormValidity';
 export * from './lib/hooks/useFormValues';
+export * from './lib/types/formTypes';
