@@ -4,7 +4,7 @@
     "jsx": "react-jsx",
     "allowJs": false,
     "baseUrl": ".",
-    "module": "ESNext",
+    "module": "NodeNext",
     "moduleResolution": "nodenext",
     "paths": {},
     "resolveJsonModule": true,
