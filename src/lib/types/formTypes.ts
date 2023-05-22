@@ -35,10 +35,10 @@ export type FormFieldMeta<TForm> = {
  *
  * @template TForm - The shape of the form.
  */
-export type FormState<TForm> = {
+export interface FormState<TForm> {
   forms: Forms<TForm>;
   formsMeta: FormsMeta<TForm>;
-};
+}
 
 /**
  * Represents the different types of actions that can be performed to update the form state.
