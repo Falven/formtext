@@ -1,6 +1,7 @@
 import { useContext } from 'react';
+
 import { FormContext } from '../context/FormContext';
-import { FormState } from '../types/formTypes';
+import { type FormState } from '../types/formTypes';
 
 /**
  * useFormContext hook - Provides access to the form state.
@@ -14,7 +15,7 @@ import { FormState } from '../types/formTypes';
  */
 export const useFormContext = <TForm,>(): FormState<TForm> => {
   const context = useContext(FormContext);
-  if (!context) {
+  if (context === null) {
     throw new Error('useFormContext must be used within a FormProvider');
   }
   return context as FormState<TForm>;

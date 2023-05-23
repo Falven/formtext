@@ -28,7 +28,7 @@ interface FormProviderProps<TForm> {
 export const FormProvider = <TForm, TField extends keyof TForm, TKey extends keyof TForm[TField]>({
   initialState,
   children,
-}: FormProviderProps<TForm>) => {
+}: FormProviderProps<TForm>): JSX.Element => {
   /**
    * useReducer hook to manage form state based on dispatched actions.
    */
@@ -42,7 +42,7 @@ export const FormProvider = <TForm, TField extends keyof TForm, TKey extends key
             forms: {
               ...state.forms,
               [action.formKey]: {
-                ...(state.forms[action.formKey] || {}),
+                ...(Object.hasOwn(state.forms, action.formKey) ? state.forms[action.formKey] : {}),
                 ...action.formValue,
               },
             },
@@ -54,7 +54,7 @@ export const FormProvider = <TForm, TField extends keyof TForm, TKey extends key
             forms: {
               ...state.forms,
               [action.formKey]: {
-                ...(state.forms[action.formKey] || {}),
+                ...(Object.hasOwn(state.forms, action.formKey) ? state.forms[action.formKey] : {}),
                 [action.fieldKey]: action.fieldValue,
               },
             },
@@ -66,7 +66,9 @@ export const FormProvider = <TForm, TField extends keyof TForm, TKey extends key
             formsMeta: {
               ...state.formsMeta,
               [action.formKey]: {
-                ...(state.formsMeta[action.formKey] || {}),
+                ...(Object.hasOwn(state.formsMeta, action.formKey)
+                  ? state.formsMeta[action.formKey]
+                  : {}),
                 ...action.metaValue,
               },
             },
@@ -78,9 +80,11 @@ export const FormProvider = <TForm, TField extends keyof TForm, TKey extends key
             formsMeta: {
               ...state.formsMeta,
               [action.formKey]: {
-                ...(state.formsMeta[action.formKey] || {}),
+                ...(Object.hasOwn(state.formsMeta, action.formKey)
+                  ? state.formsMeta[action.formKey]
+                  : {}),
                 [action.fieldKey]: {
-                  ...(state.formsMeta[action.formKey]?.[action.fieldKey] || {}),
+                  ...(state.formsMeta[action.formKey]?.[action.fieldKey] ?? {}),
                   ...action.fieldValue,
                 },
               },

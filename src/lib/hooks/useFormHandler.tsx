@@ -1,6 +1,26 @@
 import { useCallback } from 'react';
+
 import { useFormDispatch } from './useFormDispatch';
-import { FormAction, FormFieldMeta } from '../types/formTypes';
+import { type FormAction, type FormFieldMeta } from '../types/formTypes';
+
+export interface useFormHandlerResult<TForm> {
+  handleChange: <TField extends keyof TForm, TKey extends keyof TForm[TField]>(
+    formKey: TField,
+    fieldKey: TKey,
+    fieldValue: TForm[TField][TKey],
+    errorMessage?: string,
+  ) => void;
+  handleBlur: <TField extends keyof TForm, TKey extends keyof TForm[TField]>(
+    formKey: TField,
+    fieldKey: TKey,
+    errorMessage?: string,
+  ) => void;
+  setAndShowError: <TField extends keyof TForm, TKey extends keyof TForm[TField]>(
+    formKey: TField,
+    fieldKey: TKey,
+    errorMessage?: string,
+  ) => void;
+}
 
 /**
  * `useFormHandler` is a custom hook that returns `handleChange`, `handleBlur`, `resetForm`, and
