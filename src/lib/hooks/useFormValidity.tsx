@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
+
 import { useFormContext } from './useFormContext';
-import { FormFieldMeta, FormsMeta } from '../types/formTypes';
+import { type FormFieldMeta, type FormsMeta } from '../types/formTypes';
+
+export type useFormValidityResult = readonly [boolean, (valid: boolean) => void];
 
 /**
  * A custom hook that calculates the validity of a form based on the form state.
@@ -14,7 +17,7 @@ import { FormFieldMeta, FormsMeta } from '../types/formTypes';
 export const useFormValidity = <TForm,>(
   formName: keyof FormsMeta<TForm>,
   validateTouch?: boolean,
-) => {
+): useFormValidityResult => {
   // Access the form metadata from the form context
   const { formsMeta } = useFormContext<TForm>();
 
@@ -35,14 +38,14 @@ export const useFormValidity = <TForm,>(
     }
 
     // Retrieve the keys from the form metadata
-    const metaKeys = Object.keys(formMeta) as (keyof typeof formMeta)[];
+    const metaKeys = Object.keys(formMeta) as Array<keyof typeof formMeta>;
 
     // Identify which fields in the form are required
     const requiredFields = metaKeys.filter((key) => formMeta[key]?.required === true);
 
     // Check if all required fields have been touched by the user
     const haveBeenTouched =
-      validateTouch === undefined || validateTouch === true
+      validateTouch === undefined || validateTouch
         ? requiredFields.every((key) => formMeta[key]?.touched === true)
         : true;
 

@@ -1,5 +1,6 @@
 import { createContext } from 'react';
-import { FormDispatch } from '../types/formTypes';
+
+import { type FormDispatch } from '../types/formTypes';
 
 /**
  * The form dispatch context, which stores the dispatch function for form actions.

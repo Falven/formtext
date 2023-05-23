@@ -1,6 +1,6 @@
 import { useFormValues } from './useFormValues';
 import { useFormMeta } from './useFormMeta';
-import { FormFieldMeta } from '../types/formTypes';
+import { type FormFieldMeta } from '../types/formTypes';
 
 /**
  * useFormState hook - Provides access to both the form values and metadata.

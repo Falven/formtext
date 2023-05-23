@@ -1,6 +1,7 @@
 import { useContext } from 'react';
+
 import { FormDispatchContext } from '../context/FormDispatchContext';
-import { FormDispatch } from '../types/formTypes';
+import { type FormDispatch } from '../types/formTypes';
 
 /**
  * useFormDispatch hook - Provides access to the dispatch function for form actions.
@@ -16,7 +17,7 @@ import { FormDispatch } from '../types/formTypes';
  */
 export const useFormDispatch = <TForm,>(): FormDispatch<TForm> => {
   const dispatch = useContext(FormDispatchContext);
-  if (!dispatch) {
+  if (dispatch === null) {
     throw new Error('useFormDispatch must be used within a FormProvider');
   }
   return dispatch;
