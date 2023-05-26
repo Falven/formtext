@@ -1,6 +1,6 @@
 {
   "name": "@falven/formtext",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A simple, but comprehensive, pure form state management library.",
   "keywords": [
     "form",
@@ -17,16 +17,16 @@
   },
   "license": "MIT",
   "author": "Falven",
-  "main": "dist/src/index.js",
+  "main": "dist/bundle.js",
   "types": "dist/src/index.d.ts",
   "files": [
     "dist/src/**/*.js",
-    "dist/src/**/*.ts",
+    "dist/src/**/*.d.ts",
     "dist/src/**/*.map"
   ],
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "devDependencies": {
     "@types/react": "^18.2.6",
@@ -42,8 +42,11 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
+    "ts-loader": "^9.4.3",
     "tslib": "^2.5.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1"
   },
   "peerDependencies": {
     "react": "^18.2.0",

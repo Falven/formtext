@@ -2,6 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "jsx": "react-jsx",
+    "noImplicitAny": true,
     "allowJs": false,
     "baseUrl": ".",
     "module": "ESNext",
@@ -11,7 +12,7 @@
     "rootDir": ".",
     "declaration": true,
     "importHelpers": true,
-    "outDir": "dist",
+    "outDir": "./dist/",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
