@@ -25,7 +25,11 @@ interface FormProviderProps<TForm> {
  * providing them with access to both the state of the forms and the dispatch
  * function to update the state based on defined actions.
  */
-export const FormProvider = <TForm, TField extends keyof TForm, TKey extends keyof TForm[TField]>({
+export const FormProvider = <
+  TForm,
+  TFormKey extends keyof TForm,
+  TFieldKey extends keyof TForm[TFormKey],
+>({
   initialState,
   children,
 }: FormProviderProps<TForm>): JSX.Element => {
@@ -33,7 +37,7 @@ export const FormProvider = <TForm, TField extends keyof TForm, TKey extends key
    * useReducer hook to manage form state based on dispatched actions.
    */
   const [state, dispatch] = useReducer(
-    (state: FormState<TForm>, action: FormAction<TForm, TField, TKey>): FormState<TForm> => {
+    (state: FormState<TForm>, action: FormAction<TForm, TFormKey, TFieldKey>): FormState<TForm> => {
       switch (action.type) {
         case 'SET_FORM_VALUE':
           // Update the form values while preserving other forms' state.
@@ -85,13 +89,28 @@ export const FormProvider = <TForm, TField extends keyof TForm, TKey extends key
                   : {}),
                 [action.fieldKey]: {
                   ...(state.formsMeta[action.formKey]?.[action.fieldKey] ?? {}),
-                  ...action.fieldValue,
+                  ...action.metaFieldValue,
                 },
               },
             },
           };
         case 'RESET_FORM':
-          // Reset form to initial state.
+          return {
+            ...state,
+            forms: {
+              ...state.forms,
+              [action.formKey]: {},
+            },
+          };
+        case 'RESET_FORM_META':
+          return {
+            ...state,
+            formsMeta: {
+              ...state.formsMeta,
+              [action.formKey]: {},
+            },
+          };
+        case 'RESET':
           return initialState;
         default:
           throw new Error(`Unhandled value: ${JSON.stringify(action)}`);
