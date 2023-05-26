@@ -1,6 +1,6 @@
 {
   "name": "@falven/formtext",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A simple, but comprehensive, pure form state management library.",
   "keywords": [
     "form",
@@ -28,6 +28,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
+  "dependencies": {},
   "devDependencies": {
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",

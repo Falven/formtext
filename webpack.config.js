@@ -14,9 +14,25 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      'react': 'react',
+      'react-dom': 'react-dom',
+      'react/jsx-runtime': 'react/jsx-runtime',
+    },
+  },
+  externals: {
+    'react': 'react',
+    'react-dom': 'react-dom',
+    'react/jsx-runtime': 'react/jsx-runtime',
   },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    library: {
+      type: 'module',
+    },
+  },
+  experiments: {
+    outputModule: true,
   },
 };
