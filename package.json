@@ -1,6 +1,6 @@
 {
   "name": "@falven/formtext",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A simple, but comprehensive, pure form state management library.",
   "keywords": [
     "form",
@@ -26,7 +26,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.ts"
+    "build": "webpack"
   },
   "devDependencies": {
     "@types/node": "^20.2.4",

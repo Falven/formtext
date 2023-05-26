@@ -25,8 +25,11 @@ const config: Configuration = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     library: {
-      type: 'umd',
+      type: 'module',
     },
+  },
+  experiments: {
+    outputModule: true,
   },
 };
 
