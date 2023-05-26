@@ -1,6 +1,6 @@
 {
   "name": "@falven/formtext",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "description": "A simple, but comprehensive, pure form state management library.",
   "keywords": [
     "form",
@@ -17,7 +17,7 @@
   },
   "license": "MIT",
   "author": "Falven",
-  "main": "dist/bundle.js",
+  "main": "dist/bundle.mjs",
   "types": "dist/src/index.d.ts",
   "files": [
     "dist/src/**/*.js",

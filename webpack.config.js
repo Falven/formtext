@@ -26,7 +26,7 @@ module.exports = {
     'react/jsx-runtime': 'react/jsx-runtime',
   },
   output: {
-    filename: 'bundle.js',
+    filename: 'bundle.mjs',
     path: path.resolve(__dirname, 'dist'),
     library: {
       type: 'module',
