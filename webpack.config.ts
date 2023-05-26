@@ -1,6 +1,7 @@
-const path = require('path');
+import path from 'path';
+import { Configuration } from 'webpack';
 
-module.exports = {
+const config: Configuration = {
   entry: './src/index.ts',
   devtool: 'inline-source-map',
   module: {
@@ -14,11 +15,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    alias: {
-      'react': 'react',
-      'react-dom': 'react-dom',
-      'react/jsx-runtime': 'react/jsx-runtime',
-    },
   },
   externals: {
     'react': 'react',
@@ -29,10 +25,9 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     library: {
-      type: 'module',
+      type: 'umd',
     },
   },
-  experiments: {
-    outputModule: true,
-  },
 };
+
+export default config;
