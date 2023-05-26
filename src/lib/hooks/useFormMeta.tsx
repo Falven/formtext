@@ -1,5 +1,5 @@
 import { useFormContext } from './useFormContext';
-import { type FormFieldMeta } from '../types/formTypes';
+import { type FormFieldMeta } from '../types/form-types';
 
 /**
  * useFormMeta hook - Provides access to the form metadata.

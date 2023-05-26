@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { FormContext } from '../context/FormContext';
-import { type FormState } from '../types/formTypes';
+import { type FormState } from '../types/form-types';
 
 /**
  * useFormContext hook - Provides access to the form state.

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { useFormContext } from './useFormContext';
-import { type FormFieldMeta, type FormsMeta } from '../types/formTypes';
+import { type FormFieldMeta, type FormsMeta } from '../types/form-types';
 
 export type useFormValidityResult = readonly [boolean, (valid: boolean) => void];
 

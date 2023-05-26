@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
 import { useFormDispatch } from './useFormDispatch';
-import type { FieldMeta, FormAction } from '../types/formTypes';
+import type { FieldMeta, FormAction } from '../types/form-types';
 
 /**
  * The return type of `useFormHandler`, containing callback functions to manage form state updates and error handling.

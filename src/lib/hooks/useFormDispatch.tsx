@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { FormDispatchContext } from '../context/FormDispatchContext';
-import { type FormDispatch } from '../types/formTypes';
+import { type FormDispatch } from '../types/form-types';
 
 /**
  * useFormDispatch hook - Provides access to the dispatch function for form actions.

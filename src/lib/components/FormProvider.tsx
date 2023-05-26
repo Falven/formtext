@@ -2,7 +2,7 @@ import { useReducer, type ReactNode } from 'react';
 
 import { FormContext } from '../context/FormContext';
 import { FormDispatchContext } from '../context/FormDispatchContext';
-import type { FormAction, FormDispatch, FormState } from '../types/formTypes';
+import type { FormAction, FormDispatch, FormState } from '../types/form-types';
 
 /**
  * Represents the properties needed by the FormProvider component.
