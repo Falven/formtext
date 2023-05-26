@@ -1,6 +1,6 @@
 {
   "name": "@falven/formtext",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A simple, but comprehensive, pure form state management library.",
   "keywords": [
     "form",
@@ -29,7 +29,6 @@
     "build": "webpack"
   },
   "devDependencies": {
-    "@types/node": "^20.2.4",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "@typescript-eslint/eslint-plugin": "^5.59.1",

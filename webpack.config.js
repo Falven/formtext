@@ -1,7 +1,6 @@
-import path from 'path';
-import { Configuration } from 'webpack';
+const path = require('path');
 
-const config: Configuration = {
+module.exports = {
   entry: './src/index.ts',
   devtool: 'inline-source-map',
   module: {
@@ -15,6 +14,11 @@ const config: Configuration = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      'react': 'react',
+      'react-dom': 'react-dom',
+      'react/jsx-runtime': 'react/jsx-runtime',
+    },
   },
   externals: {
     'react': 'react',
@@ -32,5 +36,3 @@ const config: Configuration = {
     outputModule: true,
   },
 };
-
-export default config;
