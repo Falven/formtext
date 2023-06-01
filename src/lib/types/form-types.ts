@@ -1,11 +1,11 @@
 /**
  * Represents the state of each form's fields.
  *
- * @template TForm - The shape of the form. This should be an object where keys represent
+ * @template TForms - The shape of the form. This should be an object where keys represent
  * the form's name and values represent the shape of the form's fields.
  */
-export type Forms<TForm> = {
-  [Key in keyof TForm]: TForm[Key];
+export type Forms<TForms> = {
+  [FormKey in keyof TForms]: TForms[FormKey];
 };
 
 /**
@@ -44,41 +44,41 @@ export type FormFieldMeta<TFieldKey> = {
 /**
  * This type describes the metadata for each form.
  *
- * @template TForm - The shape of the form. This should be an object where keys represent
+ * @template TForms - The shape of the form. This should be an object where keys represent
  * the form's name and values represent the metadata for each field within the form.
  */
-export type FormsMeta<TForm> = {
-  [FormKey in keyof TForm]?: FormFieldMeta<TForm[FormKey]>;
+export type FormsMeta<TForms> = {
+  [FormKey in keyof TForms]?: FormFieldMeta<TForms[FormKey]>;
 };
 
 /**
  * This interface represents the global state of all forms, including both the form values and metadata.
  *
- * @template TForm - The shape of the form. This should be an object where keys represent
+ * @template TForms - The shape of the form. This should be an object where keys represent
  * the form's name and values represent the form's state and metadata.
  */
-export interface FormState<TForm> {
+export interface FormState<TForms> {
   /**
    * State of the forms' values
    */
-  forms: Forms<TForm>;
+  forms: Forms<TForms>;
   /**
    * Metadata of the forms
    */
-  formsMeta: FormsMeta<TForm>;
+  formsMeta: FormsMeta<TForms>;
 }
 
 /**
  * This type represents the different types of actions that can be performed to update the form state.
  *
- * @template TForm - The shape of the form.
+ * @template TForms - The shape of the form.
  * @template TFormKey - Key of the form.
  * @template TFieldKey - Key of the field in the form.
  */
 export type FormAction<
-  TForm,
-  TFormKey extends keyof TForm,
-  TFieldKey extends keyof TForm[TFormKey],
+  TForms,
+  TFormKey extends keyof TForms,
+  TFieldKey extends keyof TForms[TFormKey],
 > =
   | {
       /**
@@ -92,7 +92,7 @@ export type FormAction<
       /**
        * The new value for the form
        */
-      formValue: TForm[TFormKey];
+      formValue: TForms[TFormKey];
     }
   | {
       /**
@@ -110,7 +110,7 @@ export type FormAction<
       /**
        * The new value for the field
        */
-      fieldValue: TForm[TFormKey][TFieldKey];
+      fieldValue: TForms[TFormKey][TFieldKey];
     }
   | {
       /**
@@ -124,7 +124,7 @@ export type FormAction<
       /**
        * The new metadata for the form
        */
-      metaValue: FormFieldMeta<TForm[TFormKey]>;
+      metaValue: FormFieldMeta<TForms[TFormKey]>;
     }
   | {
       /**
@@ -174,10 +174,10 @@ export type FormAction<
 /**
  * This type represents the dispatch function used to execute actions that update the form state.
  *
- * @template TForm - The shape of the form.
+ * @template TForms - The shape of the form.
  * @template TField - Key of the form.
  * @template TKey - Key of the field in the form.
  */
-export type FormDispatch<TForm> = <TField extends keyof TForm, TKey extends keyof TForm[TField]>(
-  action: FormAction<TForm, TField, TKey>,
+export type FormDispatch<TForms> = <TField extends keyof TForms, TKey extends keyof TForms[TField]>(
+  action: FormAction<TForms, TField, TKey>,
 ) => void;
