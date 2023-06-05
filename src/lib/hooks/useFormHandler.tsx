@@ -45,7 +45,7 @@ export interface UseFormHandlerResult<TForm> {
   /**
    * A callback function that resets the form state to its initial state.
    */
-  reset: () => void;
+  resetForm: <TField extends keyof TForm>(formKey: TField) => void;
 }
 
 /**
@@ -158,11 +158,14 @@ export const useFormHandler = <TForm,>(): UseFormHandlerResult<TForm> => {
   );
 
   /**
-   * `resetForms` is called to reset the entire form state back to its initial state.
+   * `resetForm` is called to reset the entire form state back to its initial state.
    */
-  const reset = useCallback(() => {
-    dispatch({ type: 'RESET' });
-  }, [dispatch]);
+  const resetForm = useCallback(
+    <TField extends keyof TForm>(formKey: TField) => {
+      dispatch({ type: 'RESET_FORM', formKey });
+    },
+    [dispatch],
+  );
 
-  return { setAndShowError, handleChange, handleBlur, reset };
+  return { setAndShowError, handleChange, handleBlur, resetForm };
 };
