@@ -103,7 +103,7 @@ export const FormProvider = <
             ...state,
             forms: {
               ...state.forms,
-              [action.formKey]: {},
+              [action.formKey]: initialState.forms[action.formKey],
             },
           };
         case 'RESET_FORM_META':
@@ -111,7 +111,7 @@ export const FormProvider = <
             ...state,
             formsMeta: {
               ...state.formsMeta,
-              [action.formKey]: {},
+              [action.formKey]: initialState.formsMeta[action.formKey],
             },
           };
         case 'RESET':
