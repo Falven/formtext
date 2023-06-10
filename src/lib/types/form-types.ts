@@ -78,7 +78,7 @@ export interface FormState<TForms> {
 export type FormAction<
   TForms,
   TFormKey extends keyof TForms,
-  TFieldKey extends keyof TForms[TFormKey],
+  TFieldKey extends keyof TForms[TFormKey] = keyof TForms[TFormKey],
 > =
   | {
       /**
