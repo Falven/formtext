@@ -59,7 +59,9 @@ export const FormProvider = <
               ...state.forms,
               [action.formKey]: {
                 ...(Object.hasOwn(state.forms, action.formKey) ? state.forms[action.formKey] : {}),
-                [action.fieldKey]: action.fieldValue,
+                ...{
+                  [action.fieldKey]: action.fieldValue,
+                },
               },
             },
           };
@@ -88,7 +90,9 @@ export const FormProvider = <
                   ? state.formsMeta[action.formKey]
                   : {}),
                 [action.fieldKey]: {
-                  ...(state.formsMeta[action.formKey]?.[action.fieldKey] ?? {}),
+                  ...(Object.hasOwn(state.formsMeta[action.formKey] ?? {}, action.fieldKey)
+                    ? state.formsMeta[action.formKey]?.[action.fieldKey]
+                    : {}),
                   ...action.metaFieldValue,
                 },
               },
