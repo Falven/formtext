@@ -163,6 +163,7 @@ export const useFormHandler = <TForm,>(): UseFormHandlerResult<TForm> => {
   const resetForm = useCallback(
     <TField extends keyof TForm>(formKey: TField) => {
       dispatch({ type: 'RESET_FORM', formKey });
+      dispatch({ type: 'RESET_FORM_META', formKey });
     },
     [dispatch],
   );
