@@ -42,6 +42,7 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "ts-loader": "^9.4.3",
     "ts-node": "^10.9.1",
     "tslib": "^2.5.0",
