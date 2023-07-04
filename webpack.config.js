@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: './src/index.ts',
   devtool: 'inline-source-map',
   module: {
@@ -14,12 +15,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    alias: {
-      'react': 'react',
-      'react-dom': 'react-dom',
-      'react/jsx-runtime': 'react/jsx-runtime',
-    },
   },
+  externalsType: 'module',
   externals: {
     'react': 'react',
     'react-dom': 'react-dom',
@@ -31,6 +28,7 @@ module.exports = {
     library: {
       type: 'module',
     },
+    libraryTarget: 'module',
   },
   experiments: {
     outputModule: true,
