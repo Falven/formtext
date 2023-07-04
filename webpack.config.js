@@ -28,7 +28,6 @@ module.exports = {
     library: {
       type: 'module',
     },
-    libraryTarget: 'module',
   },
   experiments: {
     outputModule: true,
