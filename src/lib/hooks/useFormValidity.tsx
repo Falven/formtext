@@ -96,15 +96,15 @@ export const useFormValidity = <TForm,>(
     }
 
     // Check if all required fields have been touched by the user
-    const haveBeenTouched =
-      validateTouch === undefined || validateTouch
-        ? allFieldsMeetCondition(formMeta, (meta) => !meta.required || (meta.touched ?? false))
-        : true;
+    const haveBeenTouched = allFieldsMeetCondition(
+      formMeta,
+      (meta) => meta.required !== true || (meta.touched ?? false),
+    );
 
     // Check if all required fields do not have any associated error messages
     const haveNoErrors = allFieldsMeetCondition(
       formMeta,
-      (meta) => !meta.required || meta.errorMessage === undefined,
+      (meta) => meta.required !== true || meta.errorMessage === undefined,
     );
 
     // If all required fields have been touched and have no errors, the form is valid. Update the form validity state.
