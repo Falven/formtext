@@ -14,6 +14,10 @@ export type Forms<TForms> = {
  */
 export interface FieldMeta {
   /**
+   * The id of the field metadata
+   */
+  id?: string | number;
+  /**
    * Whether the field is required or not
    */
   required?: boolean;
@@ -31,14 +35,16 @@ export interface FieldMeta {
   touched?: boolean;
 }
 
+export type Field = FieldMeta | FieldMeta[];
+
 /**
  * This type describes the metadata for each field within a form.
  *
- * @template TFieldKey - The type of the form values. This should be an object where keys represent
+ * @template TField - The type of the form values. This should be an object where keys represent
  * the field's name and values represent the field metadata.
  */
-export type FormFieldMeta<TFieldKey> = {
-  [FieldKey in keyof TFieldKey]: FieldMeta;
+export type FormFieldMeta<TField> = {
+  [FieldKey in keyof TField]: FormFieldMeta<TField> | FormFieldMeta<TField>[] | Field;
 };
 
 /**
@@ -142,7 +148,7 @@ export type FormAction<
       /**
        * The new metadata for the field
        */
-      metaFieldValue: FieldMeta;
+      metaFieldValue: FieldMeta | FieldMeta[];
     }
   | {
       /**
@@ -175,8 +181,6 @@ export type FormAction<
  * This type represents the dispatch function used to execute actions that update the form state.
  *
  * @template TForms - The shape of the form.
- * @template TField - Key of the form.
- * @template TKey - Key of the field in the form.
  */
 export type FormDispatch<TForms> = <TField extends keyof TForms, TKey extends keyof TForms[TField]>(
   action: FormAction<TForms, TField, TKey>,
