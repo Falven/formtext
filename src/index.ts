@@ -9,3 +9,4 @@ export * from './lib/hooks/useFormState';
 export * from './lib/hooks/useFormValidity';
 export * from './lib/hooks/useFormValues';
 export * from './lib/types/form-types';
+export * from './lib/utils/isFieldMeta';
