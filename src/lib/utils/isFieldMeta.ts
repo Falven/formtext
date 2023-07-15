@@ -6,11 +6,5 @@ import { type FieldMeta } from '../types/form-types';
  * @returns True if the item is a FieldMeta object, false otherwise
  */
 export const isFieldMeta = (item: any): item is FieldMeta => {
-  return (
-    typeof item === 'object' &&
-    'id' in item &&
-    'required' in item &&
-    'touched' in item &&
-    'errorMessage' in item
-  );
+  return item.__typename === 'FieldMeta';
 };

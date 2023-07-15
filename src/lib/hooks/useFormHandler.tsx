@@ -81,6 +81,7 @@ export const useFormHandler = <TForm,>(): UseFormHandlerResult<TForm> => {
       errorMessage?: string,
     ) => {
       const fieldValue: FieldMeta = {
+        __typename: 'FieldMeta',
         errorMessage,
         showError: errorMessage !== undefined,
       };
@@ -122,6 +123,7 @@ export const useFormHandler = <TForm,>(): UseFormHandlerResult<TForm> => {
       dispatch(action);
 
       const metaFieldValue: FieldMeta = {
+        __typename: 'FieldMeta',
         touched: true,
       };
       action = {

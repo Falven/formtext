@@ -13,6 +13,7 @@ export type Forms<TForms> = {
  * It includes properties for handling validation and interaction states.
  */
 export interface FieldMeta {
+  __typename: 'FieldMeta';
   /**
    * The id of the field metadata
    */
